@@ -1,0 +1,13 @@
+{% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<div class="header_element" id="sign">
+  <form method="post" action="{% url django.contrib.auth.views.login %}">
+  {% csrf_token %}
+    <input type="text" name="username" placeholder="email or username" class="inputbox">
+    <input type="password" name="password" placeholder="password" class="inputbox">
+    <input type="submit" id="login" class="btn btn-success" value="Log In">
+    <button type="button" id="signup" class="signup"><a href="{% url register %}">Sign up now</a></button>
+  </form>
+</div>

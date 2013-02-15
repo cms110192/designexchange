@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+  <title>The Design Exchange | {% block subtitle %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/reset.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/text.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/960.css"/>
+  <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css">
+</head>
+  <body>
+    <div class="wrapper" id="upper_wrapper_general">
+      <header class="container_12">
+      <div class="header_element" id="logo_wrapper"><a href="{% url home %}"><img id="logo_img" src="{{ STATIC_URL }}images/logo.png"></a></div>
+        {% if not user.is_authenticated %}
+          {% include 'sessions/login_form.html'%}
+        {% else %}
+          <div class="header_element" id="menu">
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Design Methods</a></li>
+              <li><a href="#">Design Guru</a></li>
+              <li><a href="#">Case Study</a></li>
+            </ul>
+          </div>
+        {% endif %}
+      </header>
+      <section class="container_12" id="box">
+        <div class="test">
+          {% block content %}{% endblock %}
+        </div>
+      </section>
+    </div>
+    <div class="wrapper" id="lower_wrapper">
+        <footer></footer>
+    </div>
+  </body>
+</html>

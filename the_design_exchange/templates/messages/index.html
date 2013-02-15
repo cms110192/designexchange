@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block subtitle %}
+Messages
+{% endblock %}
+
+{% block content %}
+<h1>Received Messages</h1>
+{% if received_messages %}
+  {% include 'messages/message_list.html' with messages=received_messages %}
+{% else %}
+  <p>No new messages received</p>
+{% endif %}
+<h1>Sent Messages</h1>
+{% if sent_messages %}
+  {% include 'messages/message_list.html' with messages=sent_messages %}
+{% else %}
+  <p>No new messages received</p>
+{% endif %}
+
+
+{% endblock %}

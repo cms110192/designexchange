@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block subtitle %}
+{{ method.title }}
+{% endblock %}
+
+{% block content %}
+<section id="upper_box_general">
+  <div class="inner_title"><b>Design Method: <b><em>{{ method.title }}</em></div>
+    <div class="search_box">
+      <form>
+        <input type="text" placeholder="Jump to another method..." class="inputbox" id="searchinput">
+        <button type="button" id="search_button" class="btn">Search</button>
+      </form>
+    </div>
+</section>
+<article class="method_element" id="author">
+  <div class="method_element_tittle_wrapper"><em class="method_element_tittle">Author</em></div>
+  {% url user_details method.author.id as user_link %}
+  <p><a href="{{ user_link }}">{{ method.author }}</a></p>
+</article>
+<article class="method_element" id="purpose">
+  <div class="method_element_tittle_wrapper"><em class="method_element_tittle">Purpose</em></div>
+  <p>{{ method.purpose }}</p>
+</article>
+<article class="method_element" id="procedure">
+  <div class="method_element_tittle_wrapper"><em class="method_element_tittle">Procedure</em></div>
+  <p>{{ method.procedure }}</p>
+</article>
+<article class="method_element" id="principles">
+  <div class="method_element_tittle_wrapper"><em class="method_element_tittle">Principles</em></div>
+  <p>{{ method.principles }}</p>
+</article>
+<article class="method_element" id="citations">
+  <div class="method_element_tittle_wrapper"><em class="method_element_tittle">Citations</em></div>
+</article>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block subtitle %}
+Methods
+{% endblock %}
+
+{% block content %}
+{% if method_list %}
+    <ul>
+      {% for method in method_list %}
+        {% url method_details method.id as method_link %}
+        <li><a href="{{ method_link }}">{{ method.title }}</a></li>
+      {% endfor %}
+    </ul>
+{% else %}
+    <p>No methods have been created.</p>
+{% endif %}
+{% endblock %}

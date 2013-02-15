@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block subtitle %}
+User List
+{% endblock %}
+
+{% block content %}
+{% if user_list %}
+    <ul>
+    {% for user in user_list %}
+      {% url user_details user.id as user_link %}
+      <li><a href="{{ user_link}}">{{ user.username }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+{% endblock %}

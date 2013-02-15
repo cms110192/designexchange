@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block subtitle %}
+Home
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>{{ user.username }}</h1>
+    <a href="/logout/">Logout</a>
+{% else %}
+<section id="upper_box">
+    <section id="introduction">
+        <h1>Help create the most extensive web resource for the design community.</h1>
+        <ul>
+            <li>Methods based on academic and industry publications will slowly be added by the students working on the site.</li>
+            <li>Then, it will be opened up to new members, who will be able to add, edit, rate and comment on methods, new or old.</li>
+            <li>Members will also be able to add case studies about their design research so we can all learn from each others' experiences!</li>
+        </ul>
+    </section>
+    <section id="intropic"><img src="{{ STATIC_URL }}images/intro.png"></section>
+</section>
+<div class="featured" id="method">
+    <header>featured method</header>
+    <p><em>Rapid Ethnography</em> is a collection of methods intended to provide an understanding of users and their activities given significant time pressures. Use it when you need to know a lot, fast!</p>
+</div>
+<article class="featured" id="case_study">
+    <header>featured case study</header>
+    <p><em>Homes for Haiti</em> - A student team from UC Berkeley used Photo-Elicitation Interviews and a Cultural Inventory to inform their redesign of shipping containers as emergency housing after the 2009 earthquake. Give feedback!</p>
+</article>
+<article class="featured" id="guru">
+    <header>Top contributor</header>
+    <p>Creating the whole idea - <em>Celeste Roschuni</em><br>
+    Add methods - <em>Arezu Aghaseyedjavadi</em><br>
+    Rebuild the backend - <em>Keien Ohta</em><br>
+    Rebuild the frontend - <em>Yang Zhao</em><br></p>
+</article>
+<article class="featured" id="collaborators">
+    <header>Collaborators</header>
+    <img src="{{ STATIC_URL }}images/index/autodesk.png">
+    <img src="{{ STATIC_URL }}images/index/frog.png">
+    <img src="{{ STATIC_URL }}images/index/ideo.png">
+    <img src="{{ STATIC_URL }}images/index/jump.png">
+    <img src="{{ STATIC_URL }}images/index/lunar.png">
+    <img src="{{ STATIC_URL }}images/index/parc.png">
+    <img src="{{ STATIC_URL }}images/index/pointforward.png">
+    <img src="{{ STATIC_URL }}images/index/portigal.png">
+</article>
+
+{% endif %}
+{% endblock %}
